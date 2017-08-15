@@ -440,9 +440,32 @@ double Neuron::getAvgWeight( int _input) {
 		w += weights[_input][j];
 		n++;
 	}
-	w+= biasweight;
-	n++;
 	return w/((double)n);
+}
+
+double Neuron::getAvgWeightCh( int _input) {
+	if (!mask[_input]) return 0;
+	int n=0;
+	double wch=0;
+	for(int j=0;j<nFilters;j++) {
+		wch += weightChange[_input][j];
+		n++;
+	}
+//	wch+= biasweightChange;
+//	n++;
+	return wch/((double)n);
+}
+
+double Neuron::getAvgWeightCh() {
+	double wch=0;
+	int n=0;
+	for(int i=0;i<nInputs;i++) {
+		if (mask[i]) {
+			wch += getAvgWeightCh(i);
+			n++;
+		}
+	}
+	return wch/((double)n);
 }
 
 

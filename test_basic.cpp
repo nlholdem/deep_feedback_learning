@@ -245,7 +245,7 @@ void test_XOR() {
 			-0.9,
 			0.9,
 			0.9,
-			0.9
+			-0.9
 	};
 
 //	printWeights(net);
@@ -261,16 +261,16 @@ void test_XOR() {
 			net->doStep(inputs[j], error);
 			yhat = net->getOutput(0);
 			error[0] = targets[j] - yhat;
-			net->setLearningRate(0.1);
-			printWeights(net);
+			net->setLearningRate(0.05);
+//			printWeights(net);
 //			printf("\n");
 			net->doStep(inputs[j], error);
-			printf("Inputs: %f %f Target: %f Output %f\n", inputs[j][0], inputs[j][1], targets[j], yhat);
-			printErrors(net);
+//			printf("Inputs: %f %f Target: %f Output %f\n", inputs[j][0], inputs[j][1], targets[j], yhat);
+//			printErrors(net);
 //			printf("\n");
-			printWeights(net);
+//			printWeights(net);
 //			printf("***\n");
-			int x=scanf("%c", &c);
+//			int x=scanf("%c", &c);
 
 			
 //			printf("Input: %f %f Target: %f\n", inputs[j][0], inputs[j][1], targets[j]);
@@ -313,7 +313,7 @@ void printWeights(DeepFeedbackLearning* net) {
 			else {
 				printf(" N %d", j);
 				for (int k=0; k<neuron->getNinputs(); k++) {
-					printf(" w%d %f ", k, neuron->getAvgWeight(k));
+					printf(" w%d %f ch %f ", k, neuron->getAvgWeight(k), neuron->getAvgWeightCh(k));
 				}
 			}
 			printf("\n");
