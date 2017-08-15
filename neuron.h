@@ -75,6 +75,7 @@ public:
 	};
 	inline void setBias( double _bias) { bias=_bias; };
 	inline void setLearningRate( double _learningrate) { learningRate = _learningrate; };
+	inline void setMomentum( double _momentum) { momentum = _momentum; };
 	inline void setUseDerivative( int _useDerivative) { useDerivative = _useDerivative; };
 	inline int getNinputs() { return nInputs; };
 	double getAvgWeight(int _input);
@@ -138,6 +139,7 @@ private:
 	double sum = 0;
 	double error = 0;
 	double learningRate = 0;
+	double momentum = 0;
 	double minT,maxT;
 	double dampingCoeff = 0.51;
 	int useDerivative = 0;

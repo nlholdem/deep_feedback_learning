@@ -229,7 +229,7 @@ void test_XOR() {
 //	void initWeights(double max = 0.001, int initBias = 1, Neuron::WeightInitMethod weightInitMethod = Neuron::MAX_OUTPUT_RANDOM);
 	net->initWeights(1.0, 1, Neuron::MAX_OUTPUT_RANDOM);
 	net->setLearningRate(0.0);
-//	net->setMomentum(0.0);
+	net->setMomentum(0.9);
 	net->setUseDerivative(0);
 	net->setBias(1.0);
 	net->setAlgorithm(DeepFeedbackLearning::backprop);
